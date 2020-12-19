@@ -1,0 +1,22 @@
+on: 
+  push:
+    branches:
+      - main
+  workflow_dispatch:
+    inputs:
+      type:
+        description: 'Type'
+        required: true
+        default: javascript
+
+
+jobs:
+  hello_world_job:
+    runs-on: ubuntu-latest
+    name: A job to say hello
+    steps:
+    - uses: actions/checkout@v2
+    - id: foo
+      uses: zero88/gh-composite-actions@v0.1.0
+      with:
+        type: ${{ github.event.inputs.type }}
