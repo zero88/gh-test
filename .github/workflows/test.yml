@@ -24,5 +24,7 @@ jobs:
         echo ::set-output name=pt::$pt
     - id: foo
       uses: zero88/gh-project-context@v0.1.0
+      env: 
+        GITHUB_CONTEXT: ${{ toJson(github) }}
       with:
         projectType: ${{ steps.projectType.outputs.pt }}
