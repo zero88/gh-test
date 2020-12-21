@@ -20,7 +20,7 @@ jobs:
     - uses: actions/checkout@v2
     - id: projectType
       run: |
-        [[ -z ${{ github.event.inputs.type }} ]] && pt="python-pipenv" || pt="${{ github.event.inputs.type }}"
+        [[ -z "${{ github.event.inputs.type }}" ]] && pt="python-pipenv" || pt="${{ github.event.inputs.type }}"
         echo ::set-output name=pt::$pt
     - id: foo
       uses: zero88/gh-project-context@v0.1.0
