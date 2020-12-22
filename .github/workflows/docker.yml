@@ -55,5 +55,25 @@ jobs:
 
       - name: Inspect
         run: |
-          docker buildx imagetools inspect localhost:5000/test:latest
+          ls -la /tmp/.buildx-cache
+          image=localhost:5000/test
+          tag=latest
+          name=test
+          inspect=$(docker buildx imagetools inspect $image:$tag)
+          platforms=linux/amd64,linux/arm/v6,linux/arm/v7,linux/arm64
+          echo $inspect
+
+          mkdir -p /tmp/zip
+          IFS=',' read -ra ARR <<< "$platforms"
+          for plat in "${ARR[@]}"; do
+            p=$(echo "${plat//\//}")
+            p=$(echo "${p//linux/}")
+            perImage=$(echo $inspect | grep -B 2 $plat | grep Name: | awk '{print $2}')
+            folder=/tmp/zip/$name-$p
+            mkdir -p $folder
+            docker create --name $name-$p $perImage && docker cp $name-$p:/log /tmp/zip/$name-$p/log && docker rm $name-$p
+            cd $folder; zip -r /tmp/zip/$name.$p.zip ./; cd -
+            ls -la $folder
+          done
+
           docker buildx prune -f --filter until=24h
