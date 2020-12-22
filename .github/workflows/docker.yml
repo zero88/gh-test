@@ -55,6 +55,13 @@ jobs:
 
       - name: Inspect
         run: |
+          whoami
+          id -u $whoami
+          id -g $whoami
+          id -G $whoami
+
+          echo "*************************************************"
+          
           ls -la /tmp/.buildx-cache
           echo "*************************************************"
           image=localhost:5000/test
@@ -74,7 +81,7 @@ jobs:
             cd $folder; zip -r /tmp/zip/$name.$p.zip ./; cd -
             echo "==============================================="
           done
-          
+
           echo "*************************************************"
           ls -la /tmp/zip
 
