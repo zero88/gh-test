@@ -41,7 +41,7 @@ jobs:
           echo "*************************************************"
           ls -la /home/runner
           echo "*************************************************"
-          du -ah -d 2 /home/runner/docker
+          du -ah -d 5 /home/runner/docker
 
       - name: Set up QEMU
         uses: docker/setup-qemu-action@v1
@@ -71,7 +71,7 @@ jobs:
 
           echo "*************************************************"
 
-          tree -aphug --du -L 2 /home/runner/docker
+          du -ah -d 5 /home/runner/docker
           echo "*************************************************"
           image=localhost:5000/test
           tag=latest
