@@ -16,7 +16,7 @@ jobs:
     runs-on: ubuntu-latest
     services:
       registry:
-        image: zero88/registry:2
+        image: zero88/registry:latest
         ports:
           - 5000:5000
         options: >-
