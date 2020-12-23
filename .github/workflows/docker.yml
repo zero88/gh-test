@@ -76,7 +76,7 @@ jobs:
           echo "*************************************************"
           docker buildx imagetools inspect localhost:5000/test:buildcache
           echo "*************************************************"
-          docker buildx prune --filter until=72h --keep-storage 5GB
+          docker buildx prune --filter until=72h --keep-storage 5GB -f
           echo "*************************************************"
           image=localhost:5000/test
           tag=latest
