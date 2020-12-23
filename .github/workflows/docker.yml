@@ -26,7 +26,7 @@ jobs:
     name: Docker...
     steps:
       - name: Check folder
-        run:
+        run: |
           docker exec registry mkdir -p /tmp/registry/aha
           ls -la /tmp/docker-cache
 
