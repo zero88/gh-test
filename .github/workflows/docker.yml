@@ -28,8 +28,10 @@ jobs:
       - name: Check folder
         run: |
           docker exec registry ls -la /tmp/registry
+          echo "*************************************************"
           ls -la /home/runner
-          ls -la /home/runner/docker
+          echo "*************************************************"
+          
 
       - uses: actions/checkout@v2
 
