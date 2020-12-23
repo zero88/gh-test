@@ -60,6 +60,7 @@ jobs:
           tags: localhost:5000/test:latest
           cache-from: type=registry,ref=localhost:5000/test:buildcache
           cache-to: type=registry,ref=localhost:5000/test:buildcache,mode=max
+          pull: true
           push: true
 
       - name: Inspect
@@ -72,6 +73,10 @@ jobs:
           echo "*************************************************"
 
           du -ah -d 5 /home/runner/docker
+          echo "*************************************************"
+          docker buildx imagetools inspect localhost:5000/test:buildcache
+          echo "*************************************************"
+          docker buildx prune --filter until=72h --keep-storage 5GB
           echo "*************************************************"
           image=localhost:5000/test
           tag=latest
