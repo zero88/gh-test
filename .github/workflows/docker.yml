@@ -27,7 +27,7 @@ jobs:
     steps:
       - name: Check folder
         run:
-          docker exec -it registry touch /tmp/registry/a.txt
+          docker exec registry touch /tmp/registry/a.txt
           ls -la /tmp/docker-cache
 
       - uses: actions/checkout@v2
