@@ -16,11 +16,11 @@ jobs:
     runs-on: ubuntu-latest
     services:
       registry:
-        image: registry:2
+        image: zero88/registry:2
         ports:
           - 5000:5000
         options: >-
-          -v /tmp/.buildx-cache:/var/lib/registry
+          -v /tmp/.buildx-cache:/registry
 
     name: Docker...
     steps:
