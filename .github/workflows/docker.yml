@@ -25,13 +25,6 @@ jobs:
 
     name: Docker...
     steps:
-      - name: Check folder
-        run: |
-          docker exec registry ls -la /tmp/registry
-          echo "*************************************************"
-          ls -la /home/runner
-          echo "*************************************************"
-
       - uses: actions/checkout@v2
 
       - name: Cache Docker layers
@@ -41,6 +34,15 @@ jobs:
           key: ${{ runner.os }}-docker-${{ github.sha }}
           restore-keys: |
             ${{ runner.os }}-docker-
+
+      - name: Check folder
+        run: |
+          docker exec registry ls -la /tmp/registry
+          echo "*************************************************"
+          ls -la /home/runner
+          echo "*************************************************"
+          set +e
+          tree -aphug --du -L 2 /home/runner/docker
 
       - name: Set up QEMU
         uses: docker/setup-qemu-action@v1
@@ -70,7 +72,7 @@ jobs:
 
           echo "*************************************************"
 
-          ls -la /home/runner/docker
+          tree -aphug --du -L 2 /home/runner/docker
           echo "*************************************************"
           image=localhost:5000/test
           tag=latest
@@ -94,9 +96,9 @@ jobs:
           ls -la /tmp/zip
 
           echo "*************************************************"
-          docker buildx prune -f --filter until=24h
 
       - uses: actions/upload-artifact@v2
         with:
           name: artifact
           path: /tmp/zip/*.zip
+          retention-days: 1
