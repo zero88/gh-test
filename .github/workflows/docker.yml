@@ -41,9 +41,7 @@ jobs:
           echo "*************************************************"
           ls -la /home/runner
           echo "*************************************************"
-          apt-get install tree -y
-          set +e
-          tree -aphug --du -L 2 /home/runner/docker
+          du -ah -d 2 /home/runner/docker
 
       - name: Set up QEMU
         uses: docker/setup-qemu-action@v1
