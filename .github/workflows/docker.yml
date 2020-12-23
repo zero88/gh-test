@@ -41,6 +41,7 @@ jobs:
           echo "*************************************************"
           ls -la /home/runner
           echo "*************************************************"
+          apt intall tree -y
           set +e
           tree -aphug --du -L 2 /home/runner/docker
 
