@@ -37,7 +37,7 @@ jobs:
 
       - name: Validate cache registry
         run: |
-          docker exec registry ls -la /tmp/registry
+          docker exec registry ls -la /var/lib/registry
           echo "*************************************************"
           ls -la /home/runner
           echo "*************************************************"
