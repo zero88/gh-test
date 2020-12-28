@@ -16,11 +16,11 @@ jobs:
     runs-on: ubuntu-latest
     services:
       registry:
-        image: zero88/registry:latest
+        image: ghcr.io/zero88/gh-registry:main
         ports:
           - 5000:5000
         options: >-
-          -v /home/runner:/tmp/registry
+          -v /home/runner:/var/lib/registry
           --name registry
 
     name: Docker...
@@ -35,13 +35,15 @@ jobs:
           restore-keys: |
             ${{ runner.os }}-docker-
 
-      - name: Check folder
+      - name: Validate cache registry
         run: |
           docker exec registry ls -la /tmp/registry
           echo "*************************************************"
           ls -la /home/runner
           echo "*************************************************"
           du -ah -d 5 /home/runner/docker
+          echo "*************************************************"
+          docker buildx imagetools inspect localhost:5000/test:buildcache
 
       - name: Set up QEMU
         uses: docker/setup-qemu-action@v1
