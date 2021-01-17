@@ -1,9 +1,15 @@
 name: First run
 
 on: 
-  # push:
-  #   branches:
-  #     - main
+  push:
+    branches:
+      - main
+    tags:
+      - v*
+  pull_request:
+    types: [opened, synchronize, reopened, closed]
+    branches:
+      - 'main'
   workflow_dispatch:
     inputs:
       type:
@@ -23,8 +29,6 @@ jobs:
         [[ -z "${{ github.event.inputs.type }}" ]] && pt="python-pipenv" || pt="${{ github.event.inputs.type }}"
         echo ::set-output name=pt::$pt
     - id: foo
-      uses: zero88/gh-project-context@v0.1.0
-      env: 
-        GITHUB_CONTEXT: ${{ toJson(github) }}
+      uses: zero88/gh-project-context@main
       with:
         projectType: ${{ steps.projectType.outputs.pt }}
