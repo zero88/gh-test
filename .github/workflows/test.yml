@@ -1,21 +1,21 @@
 name: First run
 
-on: 
+on:
   push:
     branches:
       - main
     tags:
       - v*
   pull_request:
-    types: [opened, synchronize, reopened, closed]
+    types: [ opened, synchronize, reopened, closed ]
     branches:
       - 'main'
   workflow_dispatch:
     inputs:
-      type:
-        description: 'Type'
+      patterns:
+        description: 'Patterns'
         required: true
-        default: javascript
+        default: ''
 
 
 jobs:
@@ -23,12 +23,17 @@ jobs:
     runs-on: ubuntu-latest
     name: A job to say hello
     steps:
-    - uses: actions/checkout@v2
-    - id: projectType
-      run: |
-        [[ -z "${{ github.event.inputs.type }}" ]] && pt="python-pipenv" || pt="${{ github.event.inputs.type }}"
-        echo ::set-output name=pt::$pt
-    - id: foo
-      uses: zero88/gh-project-context@main
-      with:
-        projectType: ${{ steps.projectType.outputs.pt }}
+      - uses: actions/checkout@v2
+      - id: projectType
+        run: |
+          [[ -z "${{ github.event.inputs.type }}" ]] && pt="python-pipenv" || pt="${{ github.event.inputs.type }}"
+          echo ::set-output name=pt::$pt
+      - id: foo
+        uses: zero88/gh-project-context@main
+        with:
+          patterns: |
+            gradle.properties
+            package.json
+            pyproject.toml
+            version.txt
+            version.yml
