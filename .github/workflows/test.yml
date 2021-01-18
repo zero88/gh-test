@@ -12,11 +12,9 @@ on:
       - 'main'
   workflow_dispatch:
     inputs:
-      patterns:
-        description: 'Patterns'
+      dry:
+        description: 'dryRun'
         required: true
-        default: ''
-
 
 jobs:
   hello_world_job:
@@ -24,13 +22,14 @@ jobs:
     name: A job to say hello
     steps:
       - uses: actions/checkout@v2
-      - id: projectType
+      - id: dryRun
         run: |
-          [[ -z "${{ github.event.inputs.type }}" ]] && pt="python-pipenv" || pt="${{ github.event.inputs.type }}"
-          echo ::set-output name=pt::$pt
+          [[ -z "${{ github.event.inputs.dry }}" ]] && dry=false || dry="${{ github.event.inputs.dry }}"
+          echo ::set-output name=dry::$dry
       - id: foo
         uses: zero88/gh-project-context@main
         with:
+          dry: ${{ steps.dryRun.outputs.dry }}
           patterns: |
             gradle.properties
             package.json
