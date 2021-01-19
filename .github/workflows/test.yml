@@ -17,6 +17,8 @@ jobs:
     name: A job to say hello
     steps:
       - uses: actions/checkout@v2
+        with:
+          token: ${{ secrets.OSS_GITHUB_TOKEN }}
       - id: foo
         uses: zero88/gh-project-context@main
         with:
