@@ -1,0 +1,55 @@
+name: build-p1
+
+on:
+  pull_request:
+    types: [ opened, synchronize, reopened, closed ]
+    branches: [ main, master ]
+    paths:
+      - '.github/workflows/p1.yml'
+      - 'p1/**'
+  push:
+    branches: [ main, master ]
+    tags:
+      - 'p1/v*'
+    paths:
+      - '.github/workflows/p1.yml'
+      - 'p1/**'
+
+jobs:
+
+  context:
+    runs-on: ubuntu-latest
+
+    steps:
+      - uses: actions/checkout@v2
+        with:
+          token: ${{ secrets.OSS_GITHUB_TOKEN }}
+
+      - name: Project context
+        id: context
+        uses: zero88/gh-project-context@v1
+        with:
+          dry: false
+          defaultBranch: master
+          tagPrefix: p1/v
+          releaseBranchPrefix: release/p1/
+          mergedReleaseMsgRegex: "^Merge pull request #[0-9]+ from .+/release/p1/.+$"
+          patterns: |
+            p1/version.py::(VERSION\s?=\s?)(')([^']+)(')::2
+
+      - name: Docker context
+        id: docker_meta
+        uses: crazy-max/ghaction-docker-meta@v2
+        with:
+          images: zero88/p1
+          tags: |
+            type=ref,event=branch
+            type=ref,event=tag
+            type=ref,event=pr
+            type=sha
+            type=match,pattern=p1\/v(.*),group=1
+
+      - name: Print
+        run: |
+            echo "${{ steps.docker_meta.outputs.tags }}"
+            echo "${{ steps.docker_meta.outputs.labels }}"

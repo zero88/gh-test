@@ -1,15 +1,10 @@
-name: docker
+name: docker-cache
 
 on:
 #  push:
 #    branches:
 #      - main
   workflow_dispatch:
-    inputs:
-      type:
-        description: 'Type'
-        required: true
-        default: javascript
 
 jobs:
   hello_world_job:

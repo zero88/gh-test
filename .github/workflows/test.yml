@@ -1,4 +1,4 @@
-name: First run
+name: GH-context
 
 on:
   push:
@@ -6,10 +6,16 @@ on:
       - main
     tags:
       - v*
+    paths-ignore:
+      - 'p1/**'
+      - '.github/workflows/p1.yml'
   pull_request:
     types: [ opened, synchronize, reopened, closed ]
     branches:
       - 'main'
+    paths-ignore:
+      - 'p1/**'
+      - '.github/workflows/p1.yml'
   workflow_dispatch:
 
 jobs:
