@@ -44,10 +44,10 @@ jobs:
           images: zero88/p1
           tags: |
             type=ref,event=branch
-            type=ref,event=tag
             type=ref,event=pr
             type=sha
-            type=match,pattern=p1-v(.*),group=1
+            type=match,pattern=p1-v(.*),group=1,priority=1000
+            type=semver,pattern={{major}}.{{minor}}
 
       - name: Print
         run: |
