@@ -46,8 +46,8 @@ jobs:
             type=ref,event=branch
             type=ref,event=pr
             type=sha
-            type=match,pattern=p1-v(\d.\d.\d),group=1,priority=1000
-            type=match,pattern=p1-v(\d.\d),group=1,priority=1000
+            type=match,pattern=p1-v(\d+\.\d+\.\d+),group=1,priority=1000
+            type=match,pattern=p1-v(\d+\.\d+),group=1,priority=1000
 
       - name: Print
         run: |
