@@ -36,5 +36,4 @@ jobs:
       - id: foo
         uses: zero88/gh-project-context@main
         with:
-          dry: false
-          nextVerMode: MINOR
+          nextVerMode: PATCH
