@@ -24,6 +24,8 @@ jobs:
     name: Alo
     steps:
       - uses: actions/checkout@v2
+        with:
+          token: ${{ secrets.OSS_GITHUB_TOKEN }}
       
       - name: Dump GitHub context
         env:
