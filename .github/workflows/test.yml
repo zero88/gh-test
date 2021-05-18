@@ -24,12 +24,12 @@ jobs:
     name: Alo
     steps:
       - uses: actions/checkout@v2
-        with:
-          token: ${{ secrets.OSS_GITHUB_TOKEN }}
+      
       - name: Dump GitHub context
         env:
           GITHUB_CONTEXT: ${{ toJSON(github) }}
         run: echo "$GITHUB_CONTEXT"
+        
       - id: foo
         uses: zero88/gh-project-context@main
         with:
