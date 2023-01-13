@@ -1,6 +1,6 @@
 # GH-Test
 
-v1.0.6
+v1.0.7
 
 ## Test message
 
@@ -11,3 +11,5 @@ More
 Ting Ting
 
 Tok tok
+
+new new
