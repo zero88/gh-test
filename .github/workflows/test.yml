@@ -4,6 +4,7 @@ on:
   push:
     branches:
       - main
+      - release/*
     tags:
       - v*
     paths-ignore:
@@ -37,4 +38,4 @@ jobs:
         uses: zero88/gh-project-context@main
         with:
           nextVerMode: PATCH
-          defaultBranch: master
+          defaultBranch: main
