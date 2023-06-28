@@ -35,8 +35,7 @@ jobs:
         run: echo "$GITHUB_CONTEXT"
         
       - id: foo
-        uses: zero88/gh-project-context@main
+        uses: zero88/gh-project-context@bugfix/misc-bug
         with:
           nextVerMode: PATCH
-          defaultBranch: bugfix/misc-bug
           token: ${{ secrets.GITHUB_TOKEN }}
