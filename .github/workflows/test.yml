@@ -38,5 +38,5 @@ jobs:
         uses: zero88/gh-project-context@main
         with:
           nextVerMode: PATCH
-          defaultBranch: main
+          defaultBranch: bugfix/misc-bug
           token: ${{ secrets.GITHUB_TOKEN }}
