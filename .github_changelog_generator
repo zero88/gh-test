@@ -1,0 +1,4 @@
+base=CHANGELOG.md
+breaking-labels=breaking-changes
+bug-labels=T: Bug
+enhancement-labels=T: Improvement,T: Feature
