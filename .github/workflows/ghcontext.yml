@@ -33,7 +33,7 @@ jobs:
           fetch-depth: 1
       
       - id: foo
-        uses: zero88/gh-project-context@main
+        uses: zero88/gh-project-context@feature/make-context-more-robust
         with:
           changelog: true
           nextVerMode: PATCH
