@@ -4,6 +4,8 @@ on:
   create: 
     branches:
       - release/**
+    tags:
+      - v*
   push:
     branches:
       - main
