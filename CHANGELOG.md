@@ -1,5 +1,13 @@
 # Changelog
 
+## [v1.0.15](https://github.com/zero88/gh-test/tree/v1.0.15) (2023-07-01)
+
+[Full Changelog](https://github.com/zero88/gh-test/compare/v1.0.14...v1.0.15)
+
+**Closed issues:**
+
+- release 1.0.15 [\#31](https://github.com/zero88/gh-test/issues/31)
+
 ## [v1.0.14](https://github.com/zero88/gh-test/tree/v1.0.14) (2023-07-01)
 
 [Full Changelog](https://github.com/zero88/gh-test/compare/v1.0.12...v1.0.14)
