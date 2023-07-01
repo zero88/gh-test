@@ -30,17 +30,11 @@ jobs:
     steps:
       - uses: actions/checkout@v3
         with:
-          token: ${{ secrets.GITHUB_TOKEN }}
-          fetch-depth: 2
+          fetch-depth: 1
       
-      - name: Dump GitHub context
-        env:
-          GITHUB_CONTEXT: ${{ toJSON(github) }}
-        run: echo "$GITHUB_CONTEXT"
-        
       - id: foo
-        uses: zero88/gh-project-context@bugfix/misc-bug
+        uses: zero88/gh-project-context@main
         with:
+          changelog: true
           nextVerMode: PATCH
           token: ${{ secrets.GITHUB_TOKEN }}
-          changelog: true
