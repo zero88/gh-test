@@ -18,6 +18,7 @@ on:
     types: [ opened, synchronize, reopened, closed ]
     branches:
       - 'main'
+      - 'hotfix/*'
     paths-ignore:
       - 'p1/**'
       - '.github/workflows/p1.yml'
