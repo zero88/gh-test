@@ -37,7 +37,7 @@ jobs:
 
       - name: Docker context
         id: docker_meta
-        uses: crazy-max/ghaction-docker-meta@v2
+        uses: crazy-max/ghaction-docker-meta@v4
         with:
           images: zero88/p1
           tags: |
