@@ -41,7 +41,7 @@ jobs:
           docker buildx imagetools inspect localhost:5000/test:buildcache
 
       - name: Set up QEMU
-        uses: docker/setup-qemu-action@v1
+        uses: docker/setup-qemu-action@v2
 
       - name: Set up Docker Buildx
         uses: docker/setup-buildx-action@v2
