@@ -1,5 +1,14 @@
 # Changelog
 
+## [v1.0.18](https://github.com/zero88/gh-test/tree/v1.0.18) (2023-07-01)
+
+[Full Changelog](https://github.com/zero88/gh-test/compare/v1.0.16...v1.0.18)
+
+**Merged pull requests:**
+
+- Release v1.0.18 [\#33](https://github.com/zero88/gh-test/pull/33) ([github-actions[bot]](https://github.com/apps/github-actions))
+- Update README.md [\#32](https://github.com/zero88/gh-test/pull/32) ([zero88](https://github.com/zero88))
+
 ## [v1.0.15](https://github.com/zero88/gh-test/tree/v1.0.15) (2023-07-01)
 
 [Full Changelog](https://github.com/zero88/gh-test/compare/v1.0.14...v1.0.15)
