@@ -9,6 +9,7 @@ on:
   push:
     branches:
       - main
+      - hotfix/**
     tags:
       - v*
     paths-ignore:
@@ -17,7 +18,8 @@ on:
   pull_request:
     types: [ opened, synchronize, reopened, closed ]
     branches:
-      - 'main'
+      - main
+      - hotfix/**
     paths-ignore:
       - 'p1/**'
       - '.github/workflows/p1.yml'
@@ -33,7 +35,7 @@ jobs:
           fetch-depth: 1
       
       - id: foo
-        uses: zero88/gh-project-context@main
+        uses: zero88/gh-project-context@feature/support-hotfix
         with:
           changelog: true
           nextVerMode: PATCH
