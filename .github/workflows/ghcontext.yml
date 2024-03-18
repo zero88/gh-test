@@ -34,8 +34,8 @@ jobs:
         with:
           fetch-depth: 1
       
-      - id: foo
-        uses: zero88/gh-project-context@feature/support-hotfix
+      - id: context
+        uses: zero88/gh-project-context@main
         with:
           changelog: true
           nextVerMode: PATCH
