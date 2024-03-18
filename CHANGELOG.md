@@ -1,5 +1,24 @@
 # Changelog
 
+## [v1.0.20](https://github.com/zero88/gh-test/tree/v1.0.20) (2024-03-18)
+
+[Full Changelog](https://github.com/zero88/gh-test/compare/v1.0.17...v1.0.20)
+
+**Merged pull requests:**
+
+- Bump docker/setup-qemu-action from 2 to 3 [\#46](https://github.com/zero88/gh-test/pull/46) ([dependabot[bot]](https://github.com/apps/dependabot))
+- Bump crazy-max/ghaction-docker-meta from 4 to 5 [\#45](https://github.com/zero88/gh-test/pull/45) ([dependabot[bot]](https://github.com/apps/dependabot))
+- Bump docker/setup-buildx-action from 2 to 3 [\#44](https://github.com/zero88/gh-test/pull/44) ([dependabot[bot]](https://github.com/apps/dependabot))
+- Bump docker/build-push-action from 4 to 5 [\#43](https://github.com/zero88/gh-test/pull/43) ([dependabot[bot]](https://github.com/apps/dependabot))
+- Bump actions/checkout from 3 to 4 [\#42](https://github.com/zero88/gh-test/pull/42) ([dependabot[bot]](https://github.com/apps/dependabot))
+- Apply hotfix v1.0.17 patch [\#41](https://github.com/zero88/gh-test/pull/41) ([github-actions[bot]](https://github.com/apps/github-actions))
+- Bump docker/setup-qemu-action from 1 to 2 [\#40](https://github.com/zero88/gh-test/pull/40) ([dependabot[bot]](https://github.com/apps/dependabot))
+- Bump crazy-max/ghaction-docker-meta from 2 to 4 [\#39](https://github.com/zero88/gh-test/pull/39) ([dependabot[bot]](https://github.com/apps/dependabot))
+
+## [v1.0.17](https://github.com/zero88/gh-test/tree/v1.0.17) (2023-07-05)
+
+[Full Changelog](https://github.com/zero88/gh-test/compare/v1.0.18...v1.0.17)
+
 ## [v1.0.18](https://github.com/zero88/gh-test/tree/v1.0.18) (2023-07-01)
 
 [Full Changelog](https://github.com/zero88/gh-test/compare/v1.0.16...v1.0.18)
