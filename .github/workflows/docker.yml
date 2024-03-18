@@ -98,7 +98,7 @@ jobs:
 
           echo "*************************************************"
 
-      - uses: actions/upload-artifact@v3
+      - uses: actions/upload-artifact@v4
         with:
           name: artifact
           path: /tmp/zip/*.zip
